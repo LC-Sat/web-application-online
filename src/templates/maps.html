@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ texts.mapPageTitle }}</title>
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css')}}">
+
+	</head>
+
+	<body>
+		
+		<header id="header">
+			<h1>LC SAT</h1>
+		</header>
+
+		<article class="mainContainer">
+			
+			<form action="" method="post">
+
+				<label for="mapTitle">{{ texts.mapTitle }}:</label>
+				<input type="text" value="{{ default_data.mapTitle }}" id="mapTitle" placeholder="Insert map title" name="mapTitle">
+
+				<label for="iconsColor">{{ texts.iconsColor }}:</label>
+				<select name="iconsColor" id="iconsColor">
+
+					{% for iconColor in default_data.iconsColor %}
+
+						{% if iconColor == default_data.defaultIconsColor %}
+
+							<option value="{{ iconColor }}" selected>{{ iconColor }}</option>
+
+						{% else %}
+
+							<option value="{{ iconColor }}">{{ iconColor }}</option>
+						
+						{% endif %}
+
+					{% endfor %}
+
+				</select>
+
+				<label for="iconType">{{ texts.selectIcon }}:</label>
+				<select name="iconTypes" id="iconTypes">
+
+					{% for icon in default_data.icons %}
+
+						{% if icon == default_data.defaultIcon %}
+
+							<option value="{{ icon }}" selected>{{ icon }}</option>
+
+						{% else %}
+
+							<option value="{{ icon }}">{{ icon }}</option>
+						
+						{% endif %}
+
+					{% endfor %}
+
+				</select>
+
+				<label for="zoomStart">{{ texts.selectZoomStart }}:</label>
+				<input type="number" name="zoomStart" id="zoomStart" value="{{ default_data.zoomStart }}" min="1" max="18">
+
+				<input type="submit" value="{{ texts.submit }}">
+
+			</form>
+
+		</article>
+
+	</body>
+
+</html>

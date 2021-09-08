@@ -1,0 +1,73 @@
+	/* Default theme for templates */
+
+:root {
+	/* Texts */
+	--fontSize: '16px';
+}
+
+/* General properties */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: var(--font);
+	font-size: var(--fontSize);
+}
+
+body {
+	background-color: var(--backgroundColor);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.running {
+	background-color: var(--runningColor);
+}
+
+.valid {
+	background-color: var(--validColor);
+}
+
+.error {
+	background-color: var(--errorColor);
+}
+
+/* Mobiles version */
+
+header {
+	position: fixed;
+	top: 2em;
+	left: 0;
+	z-index: 20;
+	height: 6em;
+	width: 12em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--headersBackgroundColor);
+	box-shadow: 1px 5px 5px var(--componentsBackgroundColor);
+}
+
+header h1 {
+	font-size: 2.8em;
+	color: var(--textColor);
+}
+
+article.mainContainer {
+	width: 95%;
+	padding-top: 12em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+/* Computer version */
+
+@media all and (min-width: 400px) {
+	header {
+		top: 0;
+	}
+}
